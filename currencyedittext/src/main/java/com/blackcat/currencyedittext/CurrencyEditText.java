@@ -19,7 +19,7 @@ public class CurrencyEditText extends EditText {
 
     private boolean allowNegativeValues = false;
 
-    private long rawValue = 0L;
+    private Long rawValue = null;
 
     private CurrencyTextWatcher textWatcher;
     private String hintCache = null;
@@ -62,7 +62,7 @@ public class CurrencyEditText extends EditText {
      * @return The raw value that was input by the user, in the lowest denomination of that users
      *  deviceLocale.
      */
-    public long getRawValue() {
+    public Long getRawValue() {
         return rawValue;
     }
 
@@ -211,8 +211,14 @@ public class CurrencyEditText extends EditText {
         updateHint();
     }
 
-    private String format(long val){
-        return CurrencyTextFormatter.formatText(String.valueOf(val), currentLocale, defaultLocale, decimalDigits);
+    private String format(Long val) {
+        String valueToSend;
+        if (val == null) {
+            valueToSend = null;
+        } else {
+            valueToSend = String.valueOf(val.longValue());
+        }
+        return CurrencyTextFormatter.formatText(valueToSend, currentLocale, defaultLocale, decimalDigits);
     }
 
     private String format(String val){

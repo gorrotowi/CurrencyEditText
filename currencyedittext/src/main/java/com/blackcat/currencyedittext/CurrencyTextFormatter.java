@@ -21,6 +21,7 @@ public final class CurrencyTextFormatter {
 
     public static String formatText(String val, Locale locale, Locale defaultLocale, Integer decimalDigits){
         //special case for the start of a negative number
+        if(val == null) return "";
         if(val.equals("-")) return val;
 
         int currencyDecimalDigits;

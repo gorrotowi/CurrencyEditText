@@ -268,6 +268,6 @@ public class CurrencyEditTextTests {
         currencyEditText.setText("");
         currencyEditText.setText(".");
 
-        assertThat(currencyEditText.getText().toString(), is(equalTo("")));
+        assertThat(currencyEditText.getText().toString(), is(equalTo("$0.00")));
     }
 }
