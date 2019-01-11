@@ -49,6 +49,11 @@ class CurrencyTextWatcher implements TextWatcher {
                     updatedInput = currentInput.replaceAll("[^0-9]", "");
                 }
 
+                // Make sure we are not overflowing Long limit.
+                if (updatedInput.length() > 18) {
+                    updatedInput = updatedInput.substring(0, 18);
+                }
+
                 if (!TextUtils.isEmpty(updatedInput) && !updatedInput.equals("-")) {
                     //Store a copy of the raw input to be retrieved later by getRawValue
                     editText.setRawValue(Long.valueOf(updatedInput));
