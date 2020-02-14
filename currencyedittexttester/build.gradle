@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 buildscript {
     repositories {
@@ -49,8 +51,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':currencyedittext')
 
-    implementation 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     testImplementation 'junit:junit:4.12'
     testImplementation "org.mockito:mockito-core:2.19.0"
@@ -59,5 +60,4 @@ dependencies {
     testImplementation "org.robolectric:robolectric:3.3.2"
     testImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     testImplementation 'com.github.mikinw:DataSet:4006389335'
-    testAnnotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }
